@@ -1,0 +1,7 @@
+package curllib
+sourcedir = lib
+modules = Net.Curl, Net.Curl.Tests.Init,Net.Curl.Tests.SetURL,Net.Curl.Tests.CurlEasyPerform
+makefile = Makefile
+pkgs = contrib
+objs = curl_lib.h, curl_lib.o
+tests = Net.Curl.Tests.Init.test, Net.Curl.Tests.SetURL.test, Net.Curl.Tests.CurlEasyPerform.test

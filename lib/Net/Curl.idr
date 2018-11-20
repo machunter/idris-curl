@@ -25,10 +25,19 @@ setURL url = do
   put (CurrentState("setURL"::last_state, Just handle, Just CurlResultSuccess, debugMode))
   pure (result)
 
+
 public export
-curlEasyPerform : State CurlState CurlResult
-curlEasyPerform = do
+easyPerform : State CurlState CurlResult
+easyPerform = do
   CurrentState (last_state, Just handle, _, debugMode) <- get
   let result = curlEasyPerform handle
   put (CurrentState("curlEasyPerfrom"::last_state, Just handle, Just CurlResultSuccess, debugMode))
   pure (result)
+
+public export
+enableNetRCFile : State CurlState CurlResult
+enableNetRCFile = do
+  CurrentState (last_state, Just handle, _, debugMode) <- get
+  let result = curlEnableNetRCFile handle
+  put (CurrentState ("curlEnableNetRCFile"::last_state, Just handle, Just CurlResultSuccess, debugMode))
+  pure result

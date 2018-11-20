@@ -52,3 +52,13 @@ curlEasyPerform (MkHandle handle) =
               Just jsonObject => CurlResultJSON jsonObject
               Nothing => CurlResultError "Couldn't parse JSON object"
           Nothing => CurlResultError "Not JSON!"
+
+public export
+curlEnableNetRCFile : CurlHandle -> CurlResult
+curlEnableNetRCFile (MkHandle handle) =
+  let
+    result = unsafePerformIO (foreign FFI_C "curlEnableNetRCFile" (Ptr -> IO Int) handle)
+  in
+    if result == 0
+      then CurlResultSuccess
+      else CurlResultError "Couldn't set CURLOPT_NETRC flag"

@@ -43,6 +43,16 @@ CURLcode  curlEasySetURL(CURL* handle, const char *url) {
   return res;
 }
 
+CURLcode curlEnableNetRCFile(CURL* handle) {
+  CURLcode res;
+  res = curl_easy_setopt(handle, CURLOPT_NETRC, CURL_NETRC_REQUIRED);
+#ifdef LOGCCALLS
+  printf ("curlEasySetURL: %i\n", res);
+#endif
+  return res;
+
+}
+
 char*  curlEasyPerform(CURL* handle) {
   struct MemoryStruct chunk;
 
@@ -51,8 +61,8 @@ char*  curlEasyPerform(CURL* handle) {
 
   curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, WriteMemoryCallback); // Passing the function pointer to LC
   curl_easy_setopt(handle, CURLOPT_WRITEDATA, (void*) &chunk); // Passing our BufferStruct to LC
-  CURLcode result = curl_easy_perform( handle );
-  curl_easy_cleanup( handle );
+  // should decide what to do with a failure
+  curl_easy_perform( handle );
 #ifdef LOGCCALLS
   printf("curlEasyPerform >>> %s", (char*) chunk.memory);
 #endif

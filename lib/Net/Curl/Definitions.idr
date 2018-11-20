@@ -32,4 +32,4 @@ data CurlResult =
     CurlResultJSON JSON
 
 public export
-data CurlState = CurrentState (CallTrace, Maybe CurlHandle, Maybe CurlResult, DebugMode)
+data CurlState = CurrentState (CallTrace, Maybe CurlHandle, DebugMode)

@@ -1,4 +1,4 @@
-module Net.Curl.Tests.Init
+module Net.Curl.Tests
 import Net.Curl
 import Net.Curl.Definitions
 import Control.Monad.State
@@ -15,5 +15,5 @@ feature: State CurlState CurlResult
 feature = init
 
 export
-test : IO()
-test = check (runState feature (initialState DebugModeOn))
+init : IO()
+init = check (runState feature (initialState DebugModeOn))

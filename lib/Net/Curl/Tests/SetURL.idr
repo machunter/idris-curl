@@ -1,4 +1,4 @@
-module Net.Curl.Tests.SetURL
+module Net.Curl.Tests
 import Net.Curl
 import Net.Curl.Definitions
 import Control.Monad.State
@@ -16,5 +16,5 @@ feature = do
   setURL "http://www.json-generator.com/api/json/get/ceGtYhIQoi?indent=2"
 
 export
-test : IO()
-test = check (runState feature (initialState DebugModeOn))
+setURL : IO()
+setURL = check (runState feature (initialState DebugModeOn))

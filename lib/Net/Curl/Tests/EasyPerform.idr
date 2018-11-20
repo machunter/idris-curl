@@ -1,4 +1,4 @@
-module Net.Curl.Tests.EasyPerform
+module Net.Curl.Tests
 import Net.Curl
 import Net.Curl.Definitions
 import Control.Monad.State
@@ -19,5 +19,5 @@ feature = do
   easyPerform
 
 export
-test: IO()
-test = check (runState feature (initialState DebugModeOn))
+easyPerform: IO()
+easyPerform = check (runState feature (initialState DebugModeOn))

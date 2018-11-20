@@ -8,7 +8,7 @@ modules = Net.Curl,
 makefile = Makefile
 pkgs = contrib
 objs = curl_lib.h, curl_lib.o
-tests = Net.Curl.Tests.Init.test,
-  Net.Curl.Tests.SetURL.test,
-  Net.Curl.Tests.EasyPerform.test,
-  Net.Curl.Tests.EnableNetRCFile.test
+tests = Net.Curl.Tests.init,
+  Net.Curl.Tests.setURL,
+  Net.Curl.Tests.easyPerform,
+  Net.Curl.Tests.enableNetRCFile

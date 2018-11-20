@@ -1,4 +1,4 @@
-module Net.Curl.Tests.EnableNetRCFile
+module Net.Curl.Tests
 import Net.Curl
 import Net.Curl.Definitions
 import Control.Monad.State
@@ -17,5 +17,5 @@ feature = do
   enableNetRCFile
 
 export
-test : IO()
-test = check (runState feature (initialState DebugModeOn))
+enableNetRCFile : IO()
+enableNetRCFile = check (runState feature (initialState DebugModeOn))
